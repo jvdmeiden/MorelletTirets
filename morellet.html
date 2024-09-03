@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Author: Jan van der Meiden                                           -->
+<!-- jvdmeiden@gmail.com                                                  -->
+<!-- Version: 20240901.00                                                 -->
+<!-- Copyright (c) 2024 Jan van der Meiden.                               -->
+<!-- Copying and distribution of this file, with or without modification, -->
+<!-- are permitted in any medium without royalty provided the copyright   -->
+<!-- notice and this notice are preserved.                                -->
+<!--                                                                      -->
+<!-- Morellet tirets                                                      -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Morellet tirets</title>
+    <link href="morellet.css" rel="stylesheet" type="text/css">
+    <script src="https://jvdm.info/scripts/jmid.js" defer=""></script>
+    <script src="morellet.js"></script>
+  </head>
+  <body onLoad="init()">
+    <div class="menu" onMouseOver="show('myConsole')" onMouseLeave="hide('myConsole')">
+      <div id="myConsole">
+        <form name="choice" class="myForm" form onsubmit="return submitChoice();">
+              <div><h4>Graph Data</h4></div><div></div>
+	      <label for="steps">Steps:</label>
+              <input value="7" type="number" name="steps" step="1" min="1" max="1000">
+	      <label for="lineWidth">Line Width:</label>
+              <input value="2" type="number" name="lineWidth" step="0.1" min="0" max="100">
+	      <label for="lineDistance">Line Distance:</label>
+              <input value="25" type="number" name="lineDistance" step="0.1" min="0.1" max="1000">
+	      <label for="initAngle">Init Angle:</label>
+              <input value="0" type="number" name="initAngle" step="0.1" min="0" max="1">
+	      <div></div><div class="inputr"><button value="submit" type="submit">Submit</button></div>
+	      <div></div><div><sub><a href="https://en.wikipedia.org/wiki/Fran%C3%A7ois_Morellet">See wikipedia on Morellet</a></sub><div>
+        </form>
+      </div>
+    </div>
+    <svg id="svg" style="background: white"></svg>
+  </body>
+</html>
+
