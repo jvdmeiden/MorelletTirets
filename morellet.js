@@ -1,6 +1,7 @@
 function show(id) {
   document.getElementById(id).style.visibility = "visible";
 }
+
 function hide(id) {
   document.getElementById(id).style.visibility = "hidden";
 }
@@ -20,6 +21,7 @@ function init(){
   } 
   submitChoice();
 }
+
 function submitChoice(inp){
   var steps=parseInt(document.forms["choice"]["steps"].value);
   var lineWidth=parseFloat(document.forms["choice"]["lineWidth"].value);
@@ -110,6 +112,7 @@ function submitChoice(inp){
   }
   return false;
 }
+
 function getQueryVariable(variable)
 {
   var query = window.location.search.substring(1);
