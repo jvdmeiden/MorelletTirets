@@ -16,10 +16,24 @@ function init(){
   if (getQueryVariable("d")){
     document.forms["choice"]["lineDistance"].value = getQueryVariable("d");
   } 
+  if (getQueryVariable("t")){
+    document.forms["choice"]["transp"].value = getQueryVariable("t");
+  } 
   if (getQueryVariable("i")){
     document.forms["choice"]["initAngle"].value = getQueryVariable("i");
   } 
   submitChoice();
+}
+
+function drawLine(object,x1,y1,x2,y2,w,o){
+  newLine = document.createElementNS("http://www.w3.org/2000/svg", 'line'); 
+  newLine.setAttribute("x1",x1); newLine.setAttribute("y1",y1); 
+  newLine.setAttribute("x2",x2); newLine.setAttribute("y2",y2); 
+  newLine.setAttribute("stroke-width",w); 
+  newLine.setAttribute("stroke","black"); 
+  newLine.setAttribute("stroke-linecap","round");
+  newLine.setAttribute("stroke-opacity",o); 
+  object.appendChild(newLine);
 }
 
 function submitChoice(inp){
@@ -27,6 +41,7 @@ function submitChoice(inp){
   var lineWidth=parseFloat(document.forms["choice"]["lineWidth"].value);
   var lineDistance=parseFloat(document.forms["choice"]["lineDistance"].value);
   var initAngle=parseFloat(document.forms["choice"]["initAngle"].value);
+  var transp=parseFloat(document.forms["choice"]["transp"].value);
   var ratio = window.devicePixelRatio || 1;
   if (navigator.platform == "Win32") ratio=Math.max((1/ratio),ratio);
   if (navigator.platform == "Linux x86_64") ratio=Math.max((1/ratio),ratio);
@@ -45,28 +60,14 @@ function submitChoice(inp){
       x =lineDistance/2;
       y =lineDistance/2;
       while ( x <= maxX ){
-        newLine = document.createElementNS("http://www.w3.org/2000/svg", 'line');
-        newLine.setAttribute("x1",x);
-        newLine.setAttribute("y1",0);
-        newLine.setAttribute("x2",x);
-        newLine.setAttribute("y2",maxY);
-        newLine.setAttribute("stroke-width",lineWidth);
-        newLine.setAttribute("stroke","black");
-        svgObject.appendChild(newLine);
+        drawLine(svgObject,x,0,x,maxY,lineWidth,transp) 
         x += lineDistance;
       }
     } else if (fi == 0){
       x =lineDistance/2;
       y =lineDistance/2;
       while ( y <= maxY ){
-        newLine = document.createElementNS("http://www.w3.org/2000/svg", 'line');
-        newLine.setAttribute("x1",0);
-        newLine.setAttribute("y1",y);
-        newLine.setAttribute("x2",maxX);
-        newLine.setAttribute("y2",y);
-        newLine.setAttribute("stroke-width",lineWidth);
-        newLine.setAttribute("stroke","black");
-        svgObject.appendChild(newLine);
+        drawLine(svgObject,0,y,maxX,y,lineWidth,transp) 
         y += lineDistance;
       }
     } else {
@@ -96,15 +97,7 @@ function submitChoice(inp){
           if (tanFi > 0) {x2=(maxY-h)/tanFi, y2=maxY}
           else { x2=-h/tanFi, y2=0}
         }
-        newLine = document.createElementNS("http://www.w3.org/2000/svg", 'line');
-        newLine.setAttribute("x1",x1);
-        newLine.setAttribute("y1",y1);
-        newLine.setAttribute("x2",x2);
-        newLine.setAttribute("y2",y2);
-        newLine.setAttribute("stroke-width",lineWidth);
-        newLine.setAttribute("stroke","black");
-        svgObject.appendChild(newLine);
-
+        drawLine(svgObject,x1,y1,x2,y2,lineWidth,transp) 
         h += lineDistance/cosFi;
       }
     }
