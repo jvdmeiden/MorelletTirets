@@ -1,9 +1,11 @@
+// Set a stile attribute to vissible
 function show(id) {
   document.getElementById(id).style.visibility = "visible";
 }
 
+// Set a stile attribute to collapsed 
 function hide(id) {
-  document.getElementById(id).style.visibility = "hidden";
+  document.getElementById(id).style.visibility = "collapse";
 }
 
 function init(){
@@ -49,7 +51,7 @@ function submitChoice(inp){
   var maxY=screen.height*ratio;
   var fiDelta=Math.PI/steps;
   var fi=-Math.PI/2+initAngle*fiDelta;
-  var svgObject=document.getElementById("svg");
+  var svgObject=document.getElementById("svgpict");
   var x = 0;
   var y = 0;
   while (svgObject.firstChild) {
@@ -116,4 +118,19 @@ function getQueryVariable(variable)
   }
   return(false);
 }
+
+// Change style attributes to show the menu
+function showMenu()
+{ 
+  hide("button");
+  show("menu");
+} 
+  
+// Change style attributes to hide the menu and show a button
+function hideMenu()
+{ 
+  hide("menu");
+  show("button");
+} 
+    
 

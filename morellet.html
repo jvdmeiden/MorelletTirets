@@ -17,26 +17,36 @@
     <script src="morellet.js"></script>
   </head>
   <body onLoad="init()">
-    <div class="menu" onMouseOver="show('myConsole')" onMouseLeave="hide('myConsole')">
-      <div id="myConsole">
-        <form name="choice" class="myForm" form onsubmit="return submitChoice();">
-              <div><h4>Graph Data</h4></div><div></div>
-	      <label for="steps">Steps:</label>
-              <input value="7" type="number" name="steps" step="1" min="1" max="1000">
-	      <label for="lineWidth">Line Width:</label>
-              <input value="2" type="number" name="lineWidth" step="0.1" min="0" max="100">
-	      <label for="lineDistance">Line Distance:</label>
-              <input value="25" type="number" name="lineDistance" step="0.1" min="0.1" max="1000">
-	      <label for="initAngle">Transparency:</label>
-              <input value="0.9" type="number" name="transp" step="0.1" min="0.1" max="1">
-	      <label for="initAngle">Init Angle:</label>
-              <input value="0" type="number" name="initAngle" step="0.1" min="0" max="1">
-	      <div></div><div class="inputr"><button value="submit" type="submit">Submit</button></div>
-	      <div></div><div><sub><a href="https://en.wikipedia.org/wiki/Fran%C3%A7ois_Morellet">See wikipedia on Morellet</a></sub></div>
+      <div id="menu">
+        <form name="choice" class="menuForm" onsubmit="return false;">
+          <div><h4>Graph Data</h4></div><div>
+            <input type="image" class="formExit" onclick="hideMenu()" src="exit.svg" >
+          </div>
+	  <label for="steps">Steps:</label>
+          <input value="7" type="number" name="steps" step="1" min="1" max="1000">
+	  <label for="lineWidth">Line Width:</label>
+          <input value="2" type="number" name="lineWidth" step="0.1" min="0" max="100">
+	  <label for="lineDistance">Line Distance:</label>
+          <input value="25" type="number" name="lineDistance" step="0.1" min="0.1" max="1000">
+	  <label for="initAngle">Transparency:</label>
+          <input value="0.9" type="number" name="transp" step="0.1" min="0.1" max="1">
+	  <label for="initAngle">Init Angle:</label>
+          <input value="0" type="number" name="initAngle" step="0.1" min="0" max="1">
+	  <div></div><div class="inputr">
+            <button class="formButton" onclick="submitChoice()" ><h3>Submit</h3></button><br>
+          </div>
+	  <div></div><div><sub><a href="https://en.wikipedia.org/wiki/Fran%C3%A7ois_Morellet">See wikipedia on Morellet</a></sub></div>
         </form>
       </div>
+      <!-- The button that will replace the form, set to ' collapsed'     -->
+      <!-- or visible using css and/or javascript.                        -->
+      <div id="button" class="menuButton">
+        <button class="formExit" onclick="showMenu()">
+          <img src="menu.svg" />
+          </button>
+        </div>
+      </div>
     </div>
-    <svg id="svg" xmlns="http://www.w3.org/2000/svg" style="background: white"></svg>
+    <svg id="svgpict" xmlns="http://www.w3.org/2000/svg" style="background: white"></svg>
   </body>
 </html>
-

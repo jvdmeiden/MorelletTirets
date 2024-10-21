@@ -6,7 +6,7 @@ Francois Morrelet was a Franch contemporary artist.
 
 ## Description
 
-The idea is to create a window filling svg object with a menu at the top. The menu disappears when the mouse is away from the top and re-appears when the mouse enters the top region.
+The idea is to create a window filling svg object with a collapsible menu.
 
 ## Authors
 

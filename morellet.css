@@ -1,31 +1,126 @@
 body {
-  /* Center the form on the page */
-  text-align: center;
-  margin:0; 
-  padding:0; 
-  overflow:hidden }
+  font-size: 16px;
 }
 
-form {
-  border: 1px solid #ccc;
-  border-radius: 1em;
+.menuForm select input {
+  padding:3px;
+  font-size:16px;
+  font-family:'Inter';    
 }
+
+@media only screen and (max-width: 900px) {
+  body {
+    font-size: 14px;
+  }
+  .menuForm select input {
+    font-size:14px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 12px;
+  }
+  .menuForm select input {
+    font-size:12px;
+  }
+}
+
+#menu {
+ visibility: visible;
+}
+
+#button {
+ visibility: collapse;
+}
+
+.formButton{
+  width: 80%;
+}
+
+.menuForm {
+  position: absolute;
+  left: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5px;
+  background-color: #E0E0E0;
+  text-align: left;
+  padding: 6px;
+  border: 3px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 8px;
+  border-color: grey;
+  border-radius: 16px;
+}
+
+.menuButton {
+  position: absolute;
+  left: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  width: 42px;
+  max-width: 90%;
+  background-color: #E0E0E0;
+  text-align: left;
+  padding: 10px;
+  border-style: solid;
+  border-width: 8px;
+  border-color: grey;
+  border-radius: 16px;
+}
+
+
+@media (orientation: landscape) {
+ .menuForm {
+  top: 10px;
+  width: 400px;
+  max-width: 60%;
+ }
+
+ .menuButton {
+  top: 10px;
+ }
+}
+
+
+@media (orientation: portrait) {
+  @media (pointer: coarse)  {
+   .menuForm {
+      @media (max-aspect-ratio: 0.6)  {
+         font-size: 48px;
+      }
+      bottom: 10px;
+      width: 90%;
+   }
+   .menuForm {
+    select {
+    font-family: inherit;
+    font-size: 50%;
+   }
+  }
+   .menuForm {
+    button,
+    input,
+    select,
+    textarea {
+    font-family: inherit;
+    font-size: 100%;
+   }
+  }
+ 
+ .menuButton {
+   bottom: 10px;
+  }
+ }
+}
+
+.formExit {
+ float: right;
+}
+
 
 svg { position:fixed; top:0; left:0; height:100%; width:100%; z-index: -1 }
 
-.myForm {
- display: grid;
- grid-template-columns: 1fr 2fr;
- gap: 8px;
- width: 400px;
- max-width: 90%;
- margin-left: 2%;
- margin-top: 2%;
- background-color: #E0E0E0;
- text-align: left;
- padding: 10px;
- border-style: solid;
- border-width: 8px;
- border-color: grey;
- border-radius: 16px;
-}
