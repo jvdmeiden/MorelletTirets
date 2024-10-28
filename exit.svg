@@ -1,0 +1,17 @@
+<svg width="30" height="30" class="myExit" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style><![CDATA[
+       .myExit {
+         opacity: 50%;
+       }
+       .myExit:hover {
+         opacity: 100%;
+       }
+     }
+
+    ]]></style>
+  </defs>
+  <line x1="4" y1="4" x2="26" y2="26" stroke-width="6"  stroke="black" stroke-linecap="round"></line>
+  <line x1="4" y1="26" x2="26" y2="4" stroke-width="6" stroke="black" stroke-linecap="round"></line>
+</svg>
+
